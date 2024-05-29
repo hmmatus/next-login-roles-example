@@ -5,7 +5,7 @@ import { cookies } from 'next/headers'
 export async function POST(req: Request, res: Response) {
   const { email, password } = await req.json();
   // Hardcoded login admin
-  if (email === 'user@gmail.com' && password === 'user') {
+  if (email === 'admin@gmail.com' && password === 'admin') {
     const token = jwt.sign({email, password, expiration: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30}, 'secret')
     cookies().set('jwt', token, {secure: process.env.NODE_ENV === 'production', httpOnly: true, sameSite: 'strict'})
     return new Response(JSON.stringify({message: 'Logged in'}), {status: 200, headers: {'Content-Type': 'application/json'}})
