@@ -1,3 +1,4 @@
+"use client"
 import LoginForm from '@/components/layouts/loginForm/LoginForm';
 import Axios from 'axios';
 
